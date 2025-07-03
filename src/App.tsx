@@ -30,7 +30,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
              <Route path="/settings" element={<SettingsPage />} />
-            <Route path="/" element={<Index />} />
+            <Route path="/PortGo" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
