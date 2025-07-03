@@ -1,15 +1,17 @@
-{ "name": "vite_react_shadcn_ts",
+{
+  "name": "vite_react_shadcn_ts",
   "homepage": "https://jeanmago.github.io/PortGO/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
- "scripts": {
+  "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build", 
+    "deploy": "gh-pages -d build",
     "build": "vite build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "vite"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
