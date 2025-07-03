@@ -30,6 +30,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="" element={<Index />} />
+            <Route path="/PortGO" element={<Index />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
