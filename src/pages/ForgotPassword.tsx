@@ -36,17 +36,16 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 px-4">
-      <Card className="w-full max-w-md shadow-xl">
+    <div className="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-gray-900 px-4">
+      <Card className="w-full max-w-md shadow-xl dark:bg-gray-800 dark:border-gray-700">
         <CardHeader className="text-center">
-          {/* Logo adicionado aqui */}
-          <div className="flex justify-center mb-4">
+          <Link to="/" className="flex justify-center mb-4">
+            {/* 3. A logo agora muda com base no tema */}
             <img
-               src={import.meta.env.VITE_API_URL + (theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png')}
+              src={import.meta.env.VITE_API_URL + (theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png')}
               alt="PortGO Logo"
-              className="h-24 w-auto" // Tamanho do logo
-            />
-          </div>
+              className="h-24 w-auto"
+            /></Link>
           <CardTitle className="text-3xl font-bold">Esqueceu a Senha?</CardTitle>
           <CardDescription className="text-gray-600">
             Insira seu e-mail abaixo e enviaremos um link para redefinir sua senha.
