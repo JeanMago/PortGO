@@ -72,7 +72,7 @@ const QuestionPage = () => {
       <div className="w-full max-w-3xl flex justify-between items-center bg-white/90 dark:bg-gray-800/90 p-4 rounded-2xl shadow-lg mb-6">
         <div>
           <Link to="/">            <img
-              src={theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png'}
+              src={import.meta.env.VITE_API_URL +(theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png')}
               alt="PortGO Logo"
               className="h-24 w-auto"
             /></Link>
