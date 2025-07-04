@@ -14,13 +14,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { useTheme } from "@/components/ThemeProvider"; // 1. Importar o hook de tema
+import { useTheme } from "@/components/ThemeProvider";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Por favor, insira um endereço de e-mail válido." }),
 });
 
 const ForgotPassword = () => {
+  const { theme } = useTheme();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
