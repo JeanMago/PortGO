@@ -1,3 +1,4 @@
+// src/pages/ForgotPassword.tsx
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -13,21 +14,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { useTheme } from "@/components/ThemeProvider"; // O hook já estava importado corretamente
-
-// Definição do Schema para validação do formulário
+import { useTheme } from "@/components/ThemeProvider"; // 1. Importar o hook de tema
+const { theme } = useTheme(); // 2. Usar o hook para pegar o tema atual
 const formSchema = z.object({
   email: z.string().email({ message: "Por favor, insira um endereço de e-mail válido." }),
 });
 
-// Nomes dos arquivos de logo
-const lightLogo = "/PortGO_logo.png"; // Logo para o tema claro (fundo claro)
-const darkLogo = "/PortGO_logo branco.png"; // Logo para o tema escuro (fundo escuro)
-
 const ForgotPassword = () => {
-  // 1. Obter o tema atual usando o hook
-  const { theme } = useTheme();
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,21 +35,19 @@ const ForgotPassword = () => {
   };
 
   return (
-    // 2. Usar a cor de fundo padrão do tema ao invés de um gradiente fixo
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 px-4">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
+          {/* Logo adicionado aqui */}
           <div className="flex justify-center mb-4">
-            {/* 3. Escolher o logo dinamicamente com base no tema */}
             <img
-              src={theme === 'dark' ? darkLogo : lightLogo}
+             src={import.meta.env.VITE_API_URL + (theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png')}
               alt="PortGO Logo"
-              className="h-24 w-auto"
+              className="h-24 w-auto" // Tamanho do logo
             />
           </div>
           <CardTitle className="text-3xl font-bold">Esqueceu a Senha?</CardTitle>
-          {/* 4. Usar a cor de texto secundário do tema para melhor contraste */}
-          <CardDescription className="text-muted-foreground">
+          <CardDescription className="text-gray-600">
             Insira seu e-mail abaixo e enviaremos um link para redefinir sua senha.
           </CardDescription>
         </CardHeader>
@@ -76,16 +67,14 @@ const ForgotPassword = () => {
                   </FormItem>
                 )}
               />
-              {/* 5. Remover estilos de gradiente fixo para que o botão se adapte ao tema */}
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-2">
                 Redefinir Senha
               </Button>
             </form>
           </Form>
           <div className="mt-6 text-center text-sm">
             Lembrou da senha?{" "}
-            {/* 6. Usar a cor primária do tema para o link */}
-            <Link to="/login" className="text-primary hover:underline">
+            <Link to="/login" className="text-blue-600 hover:underline">
               Voltar para o login
             </Link>
           </div>
