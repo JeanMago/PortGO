@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/components/ThemeProvider"; // 1. Importar o hook de tema
-const { theme } = useTheme(); // 2. Usar o hook para pegar o tema atual
+
 const formSchema = z.object({
   email: z.string().email({ message: "Por favor, insira um endereço de e-mail válido." }),
 });
@@ -41,7 +41,7 @@ const ForgotPassword = () => {
           {/* Logo adicionado aqui */}
           <div className="flex justify-center mb-4">
             <img
-             src={import.meta.env.VITE_API_URL + (theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png')}
+              src={import.meta.env.VITE_API_URL + "/PortGO_logo branco.png"} // Caminho para o logo na pasta public
               alt="PortGO Logo"
               className="h-24 w-auto" // Tamanho do logo
             />
