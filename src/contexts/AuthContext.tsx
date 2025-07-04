@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     setAuth({ user: null, token: null });
     localStorage.removeItem('auth');
-    window.location.href = '/PortGO/#/login'; // Redireciona para a página de login
+    
   };
   
   // Função para atualizar os dados do usuário (ex: após editar o perfil)
