@@ -30,7 +30,7 @@ const SignUp = () => {
       <Card className="w-full max-w-md shadow-xl dark:bg-gray-800 dark:border-gray-700">
         <CardHeader className="text-center">
         <Link to="/" className="flex justify-center mb-4">
-            <img src="/PortGO_logo branco.png" alt="PortGO Logo" className="h-24 w-auto"/>
+            <img src={import.meta.env.VITE_API_URL + "/PortGO_logo branco.png"} alt="PortGO Logo" className="h-24 w-auto"/>
           </Link>
           <CardTitle className="text-3xl font-bold dark:text-white">Crie sua conta</CardTitle>
           <CardDescription className="text-gray-600 dark:text-gray-400">Junte-se a nós para dominar o Português!</CardDescription>

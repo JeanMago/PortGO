@@ -65,7 +65,7 @@ const Login = () => {
           <Link to="/" className="flex justify-center mb-4">
             {/* 3. A logo agora muda com base no tema */}
             <img
-              src={theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png'}
+              src={import.meta.env.VITE_API_URL + (theme === 'dark' ? '/PortGO_logo branco.png' : '/PortGO_logo preto.png')}
               alt="PortGO Logo"
               className="h-24 w-auto"
             />

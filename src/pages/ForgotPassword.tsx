@@ -40,7 +40,7 @@ const ForgotPassword = () => {
           {/* Logo adicionado aqui */}
           <div className="flex justify-center mb-4">
             <img
-              src="/PortGO_logo branco.png" // Caminho para o logo na pasta public
+              src={import.meta.env.VITE_API_URL + "/PortGO_logo branco.png"} // Caminho para o logo na pasta public
               alt="PortGO Logo"
               className="h-24 w-auto" // Tamanho do logo
             />
