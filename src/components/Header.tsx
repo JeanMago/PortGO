@@ -18,39 +18,48 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isAuthenticated, auth, logout } = useAuth();
   const { theme } = useTheme();
-
+const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
   const navLinks = [
-    { name: 'Início', path: isAuthenticated ? '/' : '/#inicio' },
-    { name: 'Exercícios', path: isAuthenticated ? '/select-level' : '/#exercicios' },
-    { name: 'Ranking', path: isAuthenticated ? '/ranking' : '/#ranking' }
+    { name: 'Início', path: isAuthenticated ? '/' : 'inicio' },
+    { name: 'Exercícios', path: isAuthenticated ? '/select-level' : 'exercicios' },
+    { name: 'Ranking', path: isAuthenticated ? '/ranking' : 'ranking' }
   ];
 
   const renderNavLinks = (isMobile = false) => {
-    return navLinks.map(link => {
-      if (!isAuthenticated) {
-        return (
-          <a
-            key={link.name}
-            href={link.path}
-            onClick={() => isMobile && setIsMenuOpen(false)}
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 md:py-0"
-          >
-            {link.name}
-          </a>
-        );
-      }
+  return navLinks.map(link => {
+    if (!isAuthenticated) {
       return (
-        <Link
+        <a
           key={link.name}
-          to={link.path}
-          onClick={() => isMobile && setIsMenuOpen(false)}
+          href={`#${link.path}`}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection(link.path);
+          }}
           className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 md:py-0"
         >
           {link.name}
-        </Link>
+        </a>
       );
-    });
-  };
+    }
+    return (
+      <Link
+        key={link.name}
+        to={link.path}
+        onClick={() => isMobile && setIsMenuOpen(false)}
+        className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2 md:py-0"
+      >
+        {link.name}
+      </Link>
+    );
+  });
+};
 
   return (
     <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
